@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel = "stylesheet" href = "style.css">
+    <script src = "script.js"></script>
+</head>
+<body>
+    <div class="heading-text">
+        <h1> Simple Task Manager </h1>
+        <h3 class="sub-slogan"> Add a New Task! </h3>
+    </div>
+    <form class="add-task-form"> 
+        <div class="form-item"> 
+            <label for="task-name"> Task Name </label>
+            <input type="text" name="task-name" id="task-name">
+        </div>
+        <div class="form-item description-container"> 
+            <label for="task-desc"> Task Description </label>
+            <textarea class="description" maxlength="250"> </textarea>
+        </div>
+        <div class="form-item">
+            <div> 
+                <label for="task-date"> Task Date </label>
+            </div>
+            <input type="date" name="task-date" id="task-date">
+        </div> 
+        <div class="form-item"> 
+            <label for="task-time"> Task Time </label>
+            <input type="time" name="task-time" id="task-time">
+        </div>
+
+        <button class="add-task"> Add Task </button>
+    </form>
+</body>
+</html>
