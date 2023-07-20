@@ -1,20 +1,29 @@
-import generateID from "./generateID.js";
+import generateID from "./generateID.js"
+// Stateful array containing all tasks
+const tasks = [];
+if (localStorage.getItem("userTasks") !== ""){
+    localStorage.setItem("userTasks", JSON.stringify([]));
+} else {
+    console.log("User tasks found!");
+    tasks = JSON.parse(localStorage.getItem("userTasks")) | []; // starts as an empty array 
+}
+
 
 // Purpose: Creates a new task object
-class TaskInterface {
-    constructor(tasks, name, description, status) {
-        this.tasks = tasks;
+class Task {
+    constructor(name, description, priority) {
         this.id = generateID(tasks);
         this.name = name;
         this.description = description;
-        this.status = status;
+        this.status = "Incomplete";
+        this.priority = priority;
         this.created_at = Date.now();
         this.updated_at = null;
     }
     // Adds a new task to the array
     addTask() {
-        this.tasks.push(this);
-        localStorage.setItem("userTasks", JSON.stringify(this.tasks));
+        tasks.push(this); // add the current task object into the array
+        localStorage.setItem("userTasks", JSON.stringify(this.tasks)); // commit the tasks array to local storage.
     }
     // Updates an existing task
     updateTask() {
@@ -25,9 +34,11 @@ class TaskInterface {
         this.tasks.splice(tasks.findIndex(task => task.id === taskID), 1);
         localStorage.setItem("userTasks", JSON.stringify(tasks));
     }
+    // Updates an existing task
     displayTask() {
-        console.log(`Task: ${this.name} \nDescription: ${this.description} \nStatus: ${this.status}`);
+        console.log(`TaskID: ${this.id} \nTask: ${this.name} \nDescription: ${this.description} \nStatus: ${this.status}`);
     }
 }
 
-export default TaskInterface;
+export default Task;
+export {tasks}; // exporting the tasks array so that it can be used in other files

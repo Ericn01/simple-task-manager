@@ -13,7 +13,7 @@
             <h1> Simple Task Manager </h1>
             <h3 class="sub-slogan"> Add, remove, and update tasks easier than ever </h3>
         </div>
-        <button class="add-task"> <a href=addTask.html> Add Task </a> </button>
+        <button class="add-task"> In Construction! </button>
     </header>
     <main class="content">
         <article class="task-container">
@@ -23,9 +23,30 @@
                 <input type="checkbox" name="task1" id="task1">
             </div>
             <div class="task-item"> 
-                <h2> Task 1 </h2>
+                <h2> Task 2 </h2>
                 <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. </p>
             </div>
+            <div class="more-tasks-container"> 
+                <img src="./images/more-tasks.png" alt="Add a new task" class="new-task">
+                <form class="add-task-form"> 
+                    <div class="form-item"> 
+                        <label for="task-name"> Task Name </label>
+                        <input type="text" name="task-name" id="task-name">
+                    </div>
+                    <div class="form-item description-container"> 
+                        <label for="task-desc"> Task Description </label>
+                        <textarea class="description" maxlength="250"> Write the first paragraph for my lady </textarea>
+                    </div>
+                    <div class="form-item">
+                        <label for="task-priority"> Priority </label>
+                        <select>
+                            <option value="Low"> Low </option>
+                            <option value="Medium"> Medium </option>
+                            <option value="High"> High </option>
+                        </select>
+                    </div> 
+                    <button class="add-task"> Add Task </button>
+                </form>
         </article>
     </main>
     <footer>
