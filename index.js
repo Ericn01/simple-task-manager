@@ -3,10 +3,6 @@ import Task, {tasks} from "./task.js";
 // Relevant HTML elements
 const newTaskFormBtn = document.querySelector('.new-task');
 const addTaskForm = document.querySelector('.add-task-form');
-// Create a task interface and add a task to the array (TESTING)
-const testTask = new Task("Task 1", "This is a test task", "High");
-testTask.addTask();
-testTask.displayTask();
 
 // logic to update a task
 const updateTaskLogic = (task) => {
@@ -18,12 +14,29 @@ const deleteTaskLogic = (task) => {
     const taskToDeleteHTML = document.querySelector(`#${task.id}`);
     taskToDeleteHTML.remove();
 }
+/* As the function name implies, given a priority level (string), the according color is returned*/
+const colorTaskByPriority = (priority) => {
+    switch (priority) {
+        case "High":
+            return "#fdad9e";
+        case "Medium":
+            return "#ffe6b5";
+        case "Low":
+            return "#d4ffcf";
+        default:
+            return "#dddddd"; // Should not be possible without tampering with the task object itself
+    }
+}
 
 // Function that creates the HTML for a given taskItm
 const createTaskItemHTML = (task) => {
     const taskItem = document.createElement('div');
     taskItem.className = "task-item";
     taskItem.id = task.id;
+    taskItem.style.backgroundColor = colorTaskByPriority(task.priority);
+    // Create the heading element container the title and images
+    const taskHeading = document.createElement('div');
+    taskHeading.className = "task-heading";
     // Adding the title of the task
     const taskTitle = document.createElement('h2');
     taskTitle.className = "task-title";
@@ -45,16 +58,20 @@ const createTaskItemHTML = (task) => {
     // Changing the source of the images
     removeTaskImage.src = "./images/delete.png";
     removeTaskImage.alt = "Remove task";
+    removeTaskImage.id = "remove-task";
     editTaskImage.src = "./images/edit.png";
     editTaskImage.alt = "Edit task";
+    editTaskImage.id = "edit-task";
     // Appending the images to the task image div
     taskImages.appendChild(removeTaskImage);
     taskImages.appendChild(editTaskImage);
+    // Append title and images to the heading
+    taskHeading.appendChild(taskTitle);
+    taskHeading.appendChild(taskImages);
     // Adding these elements to the task item
-    taskItem.appendChild(taskTitle);
+    taskItem.appendChild(taskHeading);
     taskItem.appendChild(taskDescription);
     taskItem.appendChild(taskStatus);
-    taskItem.appendChild(taskImages);
     // Adding the task item to the task container
     taskContainer.appendChild(taskItem);
     removeTaskImage.addEventListener('click', () => deleteTaskLogic(task));

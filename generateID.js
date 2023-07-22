@@ -1,8 +1,8 @@
 const idOptions = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm'
-                , 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];
-const ID_LENGTH = 7;
+                , 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+const ID_LENGTH = 10;
 
-// Purpose: Generates a random 7 digit ID for the user to use (incredibly low chance of two ids being the same). If the same id already exists, a new one will be created.
+// Purpose: Generates a random 10 digit ID for the user to use (incredibly low chance of two ids being the same). If the same id already exists, a new one will be created.
 const generateID = (tasks) => {
     let id = '';
     // First 5 characters are part of the 'other characters' array

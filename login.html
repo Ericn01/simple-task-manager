@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Task Manager Login </title>
+    <link rel="icon" href="./images/favicon.ico">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <header>
+        <div class="heading-text">
+            <h1> Simple Task Manager </h1>
+            <h3 class="sub-slogan"> Task Management made easier than ever! </h3>
+        </div>
+        <a href="./index.html">
+            <button class="login-btn"> 
+                <img src="./images/home.png" alt="home-picture">
+                <span> Home </span>
+            </button>
+        </a>
+    </header>
+    <main class="login-form-container"> 
+        <!-- Login form nodejs -->
+        <h1> Login Form </h1>
+        <form action="/login" method="POST">
+            <div class="login-form-item username">
+                <label for="username"> Username </label>
+                <input type="text" name="username" id="username">
+            </div>
+            <div class="login-form-item password">
+                <label for="password"> Password </label>
+                <input type="password" name="password" id="password">
+            </div>
+            <div>
+                <button type="submit"> Login </button>
+            </div>
+    </form>
+    </main>
+</body>
+</html>

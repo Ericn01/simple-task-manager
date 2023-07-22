@@ -8,7 +8,6 @@ if (localStorage.getItem("userTasks") !== ""){
     tasks = JSON.parse(localStorage.getItem("userTasks")) | []; // starts as an empty array 
 }
 
-
 // Purpose: Creates a new task object
 class Task {
     constructor(name, description, priority) {
@@ -18,7 +17,7 @@ class Task {
         this.status = "Incomplete";
         this.priority = priority;
         this.created_at = Date.now();
-        this.updated_at = null;
+        this.last_updated_at = null;
     }
     // Adds a new task to the array
     addTask() {
@@ -30,7 +29,7 @@ class Task {
         this.newName = newName;
         this.newDescription = newDescription;
         this.newPriority = newPriority;
-        this.updated_at = Date.now();
+        this.last_updated_at = Date.now();
     }
     // Complete task
     completeTask() {
