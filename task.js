@@ -23,15 +23,22 @@ class Task {
     // Adds a new task to the array
     addTask() {
         tasks.push(this); // add the current task object into the array
-        localStorage.setItem("userTasks", JSON.stringify(this.tasks)); // commit the tasks array to local storage.
+        localStorage.setItem("userTasks", JSON.stringify(tasks)); // commit the tasks array to local storage.
     }
     // Updates an existing task
-    updateTask() {
-        console.log("Updating task...");
+    updateTask(newName, newDescription, newPriority) {
+        this.newName = newName;
+        this.newDescription = newDescription;
+        this.newPriority = newPriority;
+        this.updated_at = Date.now();
+    }
+    // Complete task
+    completeTask() {
+        this.status = "Complete";
     }
     /* Removes a task from the array */
     deleteTask(taskID) {
-        this.tasks.splice(tasks.findIndex(task => task.id === taskID), 1);
+        tasks.splice(tasks.findIndex(task => task.id === taskID), 1);
         localStorage.setItem("userTasks", JSON.stringify(tasks));
     }
     // Updates an existing task
